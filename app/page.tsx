@@ -1,12 +1,10 @@
-import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components/ui/mode-toggle";
+import { redirect } from "next/navigation";
 
+import { requireAuth } from "@/modules/auth/actions";
 
-export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <Button>Hello</Button>
-      <ModeToggle/>
-    </div>
-  );
+export const instant = false;
+
+export default async function Home() {
+  await requireAuth();
+  redirect("/agents");
 }
