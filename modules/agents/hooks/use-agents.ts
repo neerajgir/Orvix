@@ -32,6 +32,9 @@ export function useCreateBlankAgent() {
 
   return useMutation({
     mutationFn: createBlankAgent,
+    onError: (error) => {
+      console.error("createBlankAgent failed:", error);
+    },
     onSuccess: (agent) => {
       queryClient.invalidateQueries({ queryKey: agentKeys.list() });
       router.push(`/agents/${agent.id}/builder`);
@@ -45,6 +48,9 @@ export function useCreateFromTemplate() {
 
   return useMutation({
     mutationFn: createFromTemplate,
+    onError: (error) => {
+      console.error("createFromTemplate failed:", error);
+    },
     onSuccess: (agent) => {
       queryClient.invalidateQueries({ queryKey: agentKeys.list() });
       router.push(`/agents/${agent.id}/builder`);
@@ -78,3 +84,20 @@ export function useUpdateAgent(agentId: string) {
     },
   });
 }
+
+  export function useSaveAgent(agentId: string) {
+    const queryClient = useQueryClient();
+  
+    return useMutation({
+      mutationFn: (data: {
+        name: string;
+        description: string;
+        draftDefinition: any;
+        canvas: any;
+      }) => saveAgent(agentId, data),
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: agentKeys.detail(agentId) });
+        queryClient.invalidateQueries({ queryKey: agentKeys.list() });
+      },
+    });
+  }
