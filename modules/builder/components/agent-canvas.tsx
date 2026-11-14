@@ -7,7 +7,6 @@ import {
   ReactFlow,
   type NodeTypes,
 } from "@xyflow/react";
-import "@xyflow/react/dist/style.css";
 import { AgentNode } from "@/modules/builder/components/nodes/agent-node";
 import { MemoryNode } from "@/modules/builder/components/nodes/memory-node";
 import { ModelNode } from "@/modules/builder/components/nodes/model-node";

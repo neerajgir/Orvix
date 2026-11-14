@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, DM_Sans, Outfit } from "next/font/google";
 import "./globals.css";
+import "@xyflow/react/dist/style.css";
 import { cn } from "@/lib/utils";
 import { Provider } from "@/components/providers/provider";
 import { Toaster } from "@/components/ui/toast";
