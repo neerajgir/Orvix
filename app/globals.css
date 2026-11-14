@@ -191,3 +191,42 @@
     @apply font-sans;
   }
 }
+
+/* React Flow — theme-aware overrides */
+.react-flow__attribution {
+  @apply hidden;
+}
+
+.react-flow__handle {
+  @apply border-2 border-background transition-transform;
+}
+
+.react-flow__handle:hover {
+  @apply scale-125;
+}
+
+.react-flow__edge-path {
+  @apply stroke-border;
+  stroke-width: 2;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  @apply stroke-primary;
+}
+
+.react-flow__minimap {
+  @apply overflow-hidden rounded-2xl border border-border bg-card/30 shadow-sm backdrop-blur;
+}
+
+.react-flow__minimap-mask {
+  fill: color-mix(in oklab, var(--color-muted) 70%, transparent);
+}
+
+.react-flow__minimap svg {
+  @apply bg-transparent;
+}
+
+.react-flow__node.selected {
+  @apply ring-2 ring-ring;
+}
+
