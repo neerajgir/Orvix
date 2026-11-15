@@ -2,7 +2,7 @@ import { headers } from "next/headers";
 import { prisma } from "@/lib/db";
 import type { AgentDefinition } from "@/modules/agents/lib/defination";
 import { auth } from "@/lib/auth";
-import { runAgentStream } from "@/modules/runtime/lib/run-agent";
+import { runAgentStream, type RunEvent } from "@/modules/runtime/lib/run-agent";
 
 export async function POST(
   req: Request,
@@ -77,7 +77,7 @@ export async function POST(
       }
 
       try {
-        assistantText = await runAgentStream(definition, history, message, (event) => {
+        assistantText = await runAgentStream(definition, history, message, session.user.id, (event: RunEvent) => {
           if (event.type === "text_delta") {
             send(event);
           }

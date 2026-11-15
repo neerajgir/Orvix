@@ -87,14 +87,14 @@ export function useUpdateAgent(agentId: string) {
 
   export function useSaveAgent(agentId: string) {
     const queryClient = useQueryClient();
-  
+
     return useMutation({
       mutationFn: (data: {
         name: string;
         description: string;
-        draftDefinition: any;
-        canvas: any;
-      }) => saveAgent(agentId, data),
+        draftDefinition: unknown;
+        canvas: unknown;
+      }) => updateAgent(agentId, data),
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: agentKeys.detail(agentId) });
         queryClient.invalidateQueries({ queryKey: agentKeys.list() });

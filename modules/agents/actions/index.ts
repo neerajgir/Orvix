@@ -74,6 +74,8 @@ export async function updateAgent(
     name?: string;
     description?: string;
     instructions?: string;
+    draftDefinition?: unknown;
+    canvas?: unknown;
   },
 ) {
   const user = await requireAuth();
@@ -95,9 +97,12 @@ export async function updateAgent(
     data: {
       name: data.name ?? agent.name,
       description: data.description ?? agent.description,
-      draftDefinition: (data.instructions
-        ? { ...draftDefinition, instructions: data.instructions }
-        : draftDefinition) as any,
+      draftDefinition: (data.draftDefinition
+        ? data.draftDefinition
+        : data.instructions
+          ? { ...draftDefinition, instructions: data.instructions }
+          : draftDefinition) as any,
+      canvas: (data.canvas ?? agent.canvas) as any,
     },
   });
 }
