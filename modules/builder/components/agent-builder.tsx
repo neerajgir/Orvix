@@ -39,6 +39,7 @@ export function AgentBuilder({ agent }: AgentBuilderProps) {
   const isDirty = useCanvasStore((s) => s.isDirty);
   const selectedToolIndex = useCanvasStore((s) => s.selectedToolIndex);
   const getDefinition = useCanvasStore((s) => s.getDefinition);
+  const getAgentDefinition = useCanvasStore((s) => s.getAgentDefinition);
   const getCanvas = useCanvasStore((s) => s.getCanvas);
   const markClean = useCanvasStore((s) => s.markClean);
 
@@ -136,7 +137,7 @@ export function AgentBuilder({ agent }: AgentBuilderProps) {
           <div className="min-h-0 flex-1 overflow-hidden">
             <ChatPanel
               agentId={agent.id}
-              definition={getDefinition()}
+              definition={getAgentDefinition()}
               welcomeMessage={agent.welcomeMessage}
               starterPrompts={(agent.starterPrompts as string[]) ?? []}
             />
