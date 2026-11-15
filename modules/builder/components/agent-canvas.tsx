@@ -11,8 +11,10 @@ import {
 } from "@xyflow/react";
 import { Button } from "@/components/ui/button";
 import { AgentNode } from "@/modules/builder/components/nodes/agent-node";
+import { EndNode } from "@/modules/builder/components/nodes/end-node";
 import { MemoryNode } from "@/modules/builder/components/nodes/memory-node";
 import { ModelNode } from "@/modules/builder/components/nodes/model-node";
+import { StartNode } from "@/modules/builder/components/nodes/start-node";
 import { ToolNode } from "@/modules/builder/components/nodes/tool-node";
 import { useCanvasStore } from "@/modules/builder/store/canvas-store";
 
@@ -21,6 +23,8 @@ const nodeTypes: NodeTypes = {
   model: ModelNode,
   tool: ToolNode,
   memory: MemoryNode,
+  start: StartNode,
+  end: EndNode,
 };
 
 function ZoomControls() {

@@ -37,6 +37,7 @@ type AgentBuilderProps = {
 export function AgentBuilder({ agent }: AgentBuilderProps) {
   const init = useCanvasStore((s) => s.init);
   const isDirty = useCanvasStore((s) => s.isDirty);
+  const selectedToolIndex = useCanvasStore((s) => s.selectedToolIndex);
   const getDefinition = useCanvasStore((s) => s.getDefinition);
   const getCanvas = useCanvasStore((s) => s.getCanvas);
   const markClean = useCanvasStore((s) => s.markClean);
@@ -56,6 +57,13 @@ export function AgentBuilder({ agent }: AgentBuilderProps) {
     setName(agent.name);
     setDescription(agent.description);
   }, [agent.name, agent.description]);
+
+  useEffect(() => {
+    if (selectedToolIndex !== null) {
+      setToolsOpen(false);
+      setSettingsOpen(true);
+    }
+  }, [selectedToolIndex]);
 
   function handleSave() {
     saveAgent.mutate(
