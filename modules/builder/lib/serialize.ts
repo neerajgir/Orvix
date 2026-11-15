@@ -140,7 +140,7 @@ export function canvasToBuilderDefinition(
       defaultConfig?.instructions ??
       "You are a helpful assistant.",
     modelId:
-      (agentFlowNode?.data.modelId as string) ?? defaultConfig?.modelId ?? "gpt-4o-mini",
+      (agentFlowNode?.data.modelId as string) ?? defaultConfig?.modelId ?? "gemini-3.5-flash-lite",
     tools: (agentFlowNode?.data.tools as { toolId: string; config: Record<string, unknown> }[]) ??
       defaultConfig?.tools ??
       [],

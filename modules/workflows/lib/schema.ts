@@ -75,7 +75,7 @@ export function defaultBuilderDefinition(
   const agentConfig: AgentNodeConfig = {
     label: partial?.label ?? "Main agent",
     instructions: partial?.instructions ?? "You are a helpful assistant.",
-    modelId: partial?.modelId ?? "gpt-4o-mini",
+    modelId: partial?.modelId ?? "gemini-3.5-flash-lite",
     tools: partial?.tools ?? [],
     github: partial?.github ?? { owner: "", repo: "", defaultPrNumber: "" },
   };

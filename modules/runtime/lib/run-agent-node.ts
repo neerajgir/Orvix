@@ -26,7 +26,9 @@ export async function runAgentNode(
   
     const tools = await getToolsForAgent(definition, userId);
     const model = new ChatGoogleGenerativeAI({
-      model: definition.model.modelId,
+      model: definition.model.modelId.includes("gemini")
+        ? definition.model.modelId
+        : "gemini-3.5-flash-lite",
       apiKey,
     });
   

@@ -52,7 +52,7 @@ export function builderToAgentDefinition(builder: BuilderDefinition): AgentDefin
   return {
     schemaVersion: 1,
     instructions: config.instructions,
-    model: { provider: "openai", modelId: config.modelId },
+    model: { provider: "google", modelId: config.modelId },
     tools: config.tools,
     memory: builder.memory,
     limits: {

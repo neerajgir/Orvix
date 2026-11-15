@@ -85,7 +85,7 @@ export function NodeSettingsPanel() {
       repo: "",
       defaultPrNumber: "",
     };
-    const modelId = (selectedNode.data.modelId as string) ?? "gpt-4o-mini";
+    const modelId = (selectedNode.data.modelId as string) ?? "gemini-3.5-flash-lite";
     const tools = (selectedNode.data.tools as ToolEntry[]) ?? [];
 
     return (
@@ -116,7 +116,7 @@ export function NodeSettingsPanel() {
           <Input
             id="model"
             value={modelId}
-            placeholder="gpt-4o-mini"
+            placeholder="gemini-3.5-flash-lite"
             onChange={(e) => updateNodeData(selectedNode.id, { modelId: e.target.value })}
           />
           <div className="flex flex-wrap gap-1.5">
