@@ -8,7 +8,7 @@ export function Provider({children}:{children: React.ReactNode}){
     return(
         <ThemeProvider
         attribute="class"
-        defaultTheme="sytem"
+        defaultTheme="system"
         enableSystem
         disableTransitionOnChange
         >

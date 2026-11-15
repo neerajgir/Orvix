@@ -5,6 +5,7 @@ import { auth } from "@/lib/auth";
 import { signIn } from "@/modules/auth/actions";
 import { LandingCanvasMock } from "@/components/landing/landing-canvas-mock";
 import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 
 export const instant = false;
 
@@ -32,6 +33,7 @@ export default async function Home() {
           >
             Tools
           </Link>
+          <ModeToggle />
           {authed ? (
             <Button size="sm" render={<Link href="/agents" />} nativeButton={false}>
               Open builder
